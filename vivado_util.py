@@ -64,6 +64,9 @@ def compile_standard_libraries(vunit_obj, output_path, vivado_path):
     print(simname)
     if simname == "ghdl":
         _compile_standard_libraries_unsupported(vunit_obj, output_path, vivado_path)
+    elif simname == "xsim":
+        # _compile_standard_libraries_unsupported(vunit_obj, output_path, vivado_path)
+        _compile_standard_libraries_supported(vunit_obj, output_path, vivado_path)
     else:
         _compile_standard_libraries_supported(vunit_obj, output_path, vivado_path)
     # Clean up after Vivado
@@ -195,9 +198,11 @@ def _compile_standard_libraries_supported(vunit_obj, output_path, vivado_path=No
         "unifast",
         "unifast_ver",
         "secureip",
+        "osvvm",
         "xpm",
     ]:
         path = str(Path(output_path) / library_name)
+        print(f"Path: {path}\n\n")
         if Path(path).exists():
             vunit_obj.add_external_library(library_name, path)
 
