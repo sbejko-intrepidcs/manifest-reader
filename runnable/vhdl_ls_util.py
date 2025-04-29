@@ -123,7 +123,7 @@ def get_vunit_stuff():
     except:
         # Vunit must not be installed, empty
         return {}
-    vunit_vhdl = vunit_install_dir / "vhdl"
+    vunit_vhdl = vunit_install_dir / "vhdl"/ "xsim"
     ret = {}
     ret["vunit_lib"] = []
     ret["osvvm"] = []

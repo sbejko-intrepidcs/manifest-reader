@@ -47,7 +47,7 @@ compile_simlib -force
     -language vhdl
     -language verilog
     -simulator ${simulator_name}
-    -verbose
+    -quiet
     -library unisim
     -library xpm
     -library simprim

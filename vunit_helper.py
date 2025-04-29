@@ -253,9 +253,9 @@ def setup_vunit(
     for blk_dir in blk_dirs:
         vu = add_files_from(blk_dir, vu, args, root_dir)
 
-    if use_vivado_ip and args.simulator:
+    if args.simulator:
         if vivado_version is None:
-            vivado_version = "2019.1"
+            vivado_version = "2023.2"
         vivado_cmd = get_vivado_cmd(vivado_version)
         if vivado_cmd:
             vivado_path = vivado_cmd.parent.parent
@@ -321,6 +321,13 @@ def setup_vunit(
         )
 
     vu.add_osvvm()
+    # if args.simulator == "xsim":
+    vu.add_vhdl_builtins()
+    vu.add_com()
+    vu.add_verification_components()
+    vu.add_data_types()
+
+    print("\n\n\nadding\n\n\n")
     vu.add_verification_components()
 
     tb_cfg = {
@@ -475,7 +482,7 @@ def get_vivado_cmd(version):
             exit(1)
 
     # Last chance, try guessing off the usual install path
-    vivado_cmd = Path(f"C:/Xilinx/Vivado/{version}/bin/vivado{XILINX_BIN_EXTENSION}")
+    vivado_cmd = Path(f"E:/Xilinx/Vivado/{version}/bin/vivado{XILINX_BIN_EXTENSION}")
     if vivado_cmd.exists():
         return vivado_cmd
 
