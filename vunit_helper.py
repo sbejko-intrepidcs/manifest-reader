@@ -327,12 +327,12 @@ def setup_vunit(
 
     vu.add_osvvm()
     # if args.simulator == "xsim":
-    vu.add_vhdl_builtins()
-    vu.add_com()
-    vu.add_verification_components()
-    vu.add_data_types()
+    # vu.add_vhdl_builtins()
+    # vu.add_com()
+    # vu.add_verification_components()
+    # vu.add_data_types()
 
-    print("\n\n\nadding\n\n\n")
+    # print("\n\n\nadding\n\n\n")
     vu.add_verification_components()
 
     tb_cfg = {
