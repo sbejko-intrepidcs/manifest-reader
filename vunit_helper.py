@@ -260,7 +260,7 @@ def setup_vunit(
 
     if args.simulator:
         if vivado_version is None:
-            vivado_version = "2023.2"
+            vivado_version = "2019.1"
         vivado_cmd = get_vivado_cmd(vivado_version)
         if vivado_cmd:
             vivado_path = vivado_cmd.parent.parent
@@ -487,7 +487,7 @@ def get_vivado_cmd(version):
             exit(1)
 
     # Last chance, try guessing off the usual install path
-    vivado_cmd = Path(f"E:/Xilinx/Vivado/{version}/bin/vivado{XILINX_BIN_EXTENSION}")
+    vivado_cmd = Path(f"C:/Xilinx/Vivado/{version}/bin/vivado{XILINX_BIN_EXTENSION}")
     if vivado_cmd.exists():
         return vivado_cmd
 
